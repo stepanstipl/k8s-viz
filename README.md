@@ -3,11 +3,11 @@
 *Visualize what's happening in you Kubernetes cluster.*
 
 K8s-viz is Elm webapp to visualise what's going on in your cluster. I've found
-it rather difficult sometimes to properly explain relationships betwwen
+it rather difficult sometimes to properly explain relationships between
 various resources in Kubernetes world (like Deployments, ReplicaSets,
-Services...) sometimes, so hopefull this tool will help.
+Services...) so hopefully this tool will help.
 
-![Screencast][docs/screencast.gif]
+![Screencast](docs/screencast.gif)
 
 ## Usage
 
