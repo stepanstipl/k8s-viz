@@ -1,0 +1,140 @@
+body {
+  background-color: #073642;
+  color: #93a1a1;
+  font-family: 'Open Sans', sans-serif; }
+
+.lists div div {
+  display: inline-block;
+  width: 8rem; }
+.lists div ul {
+  display: inline; }
+.lists div ul li {
+  display: inline; }
+.lists div li + li::before {
+  content: ", "; }
+
+rect[id^="dep-"] {
+  stroke: #6c71c4;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  stroke-dasharray: 5, 5;
+  fill-opacity: 1;
+  fill: #002b36;
+  rx: 10;
+  ry: 10; }
+
+text[id^="label-dep-"] {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #eee8d5; }
+
+rect[id^="rs-"] {
+  stroke: #b58900;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  stroke-dasharray: 5, 5;
+  fill-opacity: 1;
+  fill: #073642;
+  rx: 10;
+  ry: 10; }
+
+text[id^="label-rs-"] {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #eee8d5; }
+
+rect[id^="pod-"] {
+  stroke: #073642;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  stroke-dasharray: none;
+  fill-opacity: 1;
+  mask: url(#mask);
+  rx: 10;
+  ry: 10; }
+
+#stripe path {
+  stroke: white;
+  stroke-width: 2px; }
+
+g[id^="pod-Running-good"] rect {
+  fill: #6ca000; }
+
+g[id^="pod-Running-bad"] rect {
+  fill: #cb4b16; }
+
+g[id^="pod-Pending"] rect {
+  fill: #b58900; }
+
+g[id^="pod-Failed"] rect {
+  fill: #dc322f; }
+
+text[id^="label-pod-"] {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #eee8d5; }
+
+rect[id^="svc-"] {
+  stroke: #eee8d5;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+  fill: #002b36;
+  rx: 10;
+  ry: 10; }
+
+text[id^="label-svc-"] {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #eee8d5; }
+
+g[id^="svc2pods-"] polyline {
+  stroke-dasharray: 10, 10;
+  stroke: #b58900;
+  stroke-dashoffset: 0;
+  animation: dash 3s linear forwards infinite; }
+
+text[id^="label-pod-"] {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #eee8d5; }
+
+rect[id^="ing-"] {
+  stroke: #2aa198;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+  fill: #002b36;
+  rx: 10;
+  ry: 10; }
+
+text[id^="label-ing-"] {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #eee8d5; }
+
+rect[id^="ing-path-"] {
+  stroke: #2aa198;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+  fill: #002b36;
+  rx: 10;
+  ry: 10; }
+
+text[id^="label-ing-path-"] {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #eee8d5; }
+
+polyline[id^="ing2svcs-"] {
+  stroke-dasharray: 10, 10;
+  stroke: #fdf6e3;
+  stroke-dashoffset: 0;
+  animation: dash 3s linear forwards infinite; }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20; } }
+
+/*# sourceMappingURL=style.css.map */

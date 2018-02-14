@@ -1,0 +1,262 @@
+$base03: #002b36;
+$base02: #073642;
+$base01: #586e75;
+$base00: #657b83;
+$base0: #839496;
+$base1: #93a1a1;
+$base2: #eee8d5;
+$base3: #fdf6e3;
+$yellow: #b58900;
+$orange: #cb4b16;
+$red: #dc322f;
+$magenta: #d33682;
+$violet: #6c71c4;
+$blue: #268bd2;
+$cyan: #2aa198;
+$green: #859900;
+
+$green: #6ca000;
+
+$line-width: 2px;
+$line-dash: 5, 5;
+
+$label-size: 14px;
+$label-color: $base2;
+$label-weight: 500;
+
+// Deployment
+$dep-bg-color: $base03;
+$dep-line-color: $violet;
+$dep-line-width: $line-width;
+$dep-line-dasharray: $line-dash;
+
+$dep-label-size: $label-size;
+$dep-label-weight: $label-weight;
+$dep-label-color: $label-color;
+
+// ReplicaSet
+$rs-line-color: $yellow;
+$rs-bg-color: $base02;
+$rs-line-width: $line-width;
+$rs-line-dasharray: $line-dash;
+
+$rs-label-size: $label-size;
+$rs-label-weight: $label-weight;
+$rs-label-color: $label-color;
+
+// Pods
+$pod-line-color: $base02;
+$pod-bg-color: $base02;
+$pod-line-width: $line-width;
+$pod-line-dasharray: none;
+
+$pod-running-bg-color: $green;
+$pod-notready-bg-color: $orange;
+$pod-pending-bg-color: $yellow;
+$pod-failed-bg-color: $red;
+
+$pod-label-size: $label-size;
+$pod-label-weight: $label-weight;
+$pod-label-color: $label-color;
+
+// Service
+$svc-bg-color: $base03;
+$svc-line-color: $base2;
+$svc-line-width: $line-width;
+
+$svc-label-size: $label-size;
+$svc-label-weight: $label-weight;
+$svc-label-color: $label-color;
+
+$svc-traffic-line-color: $yellow;
+
+// Ingress
+$ing-bg-color: $base03;
+$ing-line-color: $cyan;
+$ing-line-width: $line-width;
+
+$ing-label-size: $label-size;
+$ing-label-weight: $label-weight;
+$ing-label-color: $label-color;
+
+$ing-traffic-line-color: $base3;
+
+// Ingress path
+$ing-path-bg-color: $base03;
+$ing-path-line-color: $cyan;
+$ing-path-line-width: $line-width;
+
+$ing-path-label-size: $label-size;
+$ing-path-label-weight: $label-weight;
+$ing-path-label-color: $label-color;
+
+body {
+  background-color: $base02;
+  color: $base1;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.lists {
+  div {
+    div {
+      display: inline-block;
+      width: 8rem;
+    }
+    ul {
+      display: inline;
+    }
+    ul li {
+      display: inline;
+    }
+    li + li::before {
+      content: ", ";
+    }
+  }
+}
+rect[id^="dep-"] {
+  stroke: $dep-line-color;
+  stroke-width: $dep-line-width;
+  stroke-opacity: 1;
+  stroke-dasharray: $dep-line-dasharray;
+  fill-opacity: 1;
+  fill: $dep-bg-color;
+  rx: 10;
+  ry: 10;
+}
+
+text[id^="label-dep-"] {
+  font-size: $dep-label-size;
+  font-weight: $dep-label-weight;
+  fill: $dep-label-color;
+}
+
+rect[id^="rs-"] {
+  stroke: $rs-line-color;
+  stroke-width: $rs-line-width;
+  stroke-opacity: 1;
+  stroke-dasharray: $rs-line-dasharray;
+  fill-opacity: 1;
+  fill: $rs-bg-color;
+  rx: 10;
+  ry: 10;
+}
+
+text[id^="label-rs-"] {
+  font-size: $rs-label-size;
+  font-weight: $rs-label-weight;
+  fill: $rs-label-color;
+}
+
+rect[id^="pod-"] {
+  stroke: $pod-line-color;
+  stroke-width: $pod-line-width;
+  stroke-opacity: 1;
+  stroke-dasharray: $pod-line-dasharray;
+  fill-opacity: 1;
+
+  mask: url(#mask);
+
+  rx: 10;
+  ry: 10;
+}
+
+#stripe path {
+  stroke: white;
+  stroke-width: 2px;
+}
+
+g[id^="pod-Running-good"] rect {
+  fill: $pod-running-bg-color;
+}
+
+g[id^="pod-Running-bad"] rect {
+  fill: $pod-notready-bg-color;
+}
+
+g[id^="pod-Pending"] rect {
+  fill: $pod-pending-bg-color;
+}
+
+g[id^="pod-Failed"] rect {
+  fill: $pod-failed-bg-color;
+}
+
+text[id^="label-pod-"] {
+  font-size: $pod-label-size;
+  font-weight: $pod-label-weight;
+  fill: $pod-label-color;
+}
+
+rect[id^="svc-"] {
+  stroke: $svc-line-color;
+  stroke-width: $svc-line-width;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+  fill: $svc-bg-color;
+  rx: 10;
+  ry: 10;
+}
+
+text[id^="label-svc-"] {
+  font-size: $svc-label-size;
+  font-weight: $svc-label-weight;
+  fill: $svc-label-color;
+}
+
+g[id^="svc2pods-"] polyline {
+  stroke-dasharray: 10, 10;
+  stroke: $svc-traffic-line-color;
+  stroke-dashoffset: 0;
+  animation: dash 3s linear forwards infinite;
+}
+
+text[id^="label-pod-"] {
+  font-size: $pod-label-size;
+  font-weight: $pod-label-weight;
+  fill: $pod-label-color;
+}
+
+rect[id^="ing-"] {
+  stroke: $ing-line-color;
+  stroke-width: $ing-line-width;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+  fill: $ing-bg-color;
+  rx: 10;
+  ry: 10;
+}
+
+text[id^="label-ing-"] {
+  font-size: $ing-label-size;
+  font-weight: $ing-label-weight;
+  fill: $ing-label-color;
+}
+
+rect[id^="ing-path-"] {
+  stroke: $ing-path-line-color;
+  stroke-width: $ing-path-line-width;
+  stroke-opacity: 1;
+  fill-opacity: 1;
+  fill: $ing-path-bg-color;
+  rx: 10;
+  ry: 10;
+}
+
+text[id^="label-ing-path-"] {
+  font-size: $ing-path-label-size;
+  font-weight: $ing-path-label-weight;
+  fill: $ing-path-label-color;
+}
+
+polyline[id^="ing2svcs-"] {
+  stroke-dasharray: 10, 10;
+  stroke: $ing-traffic-line-color;
+  stroke-dashoffset: 0;
+  animation: dash 3s linear forwards infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}

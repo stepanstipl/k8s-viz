@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>k8s-viz</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kubernetes visualizer"/>
+    <meta name="keywords" content="kubernetes"/>
+    <meta name="author" content="Stepan Stipl"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div id="main"></div>
+
+<svg height="500" width="500">
+    <defs>
+        <pattern id="stripe" patternUnits="userSpaceOnUse" width="10" height="10">
+            <path d="M-1,1 l2,-2 M0,10 l10,-10 M9,11 l2,-2" />
+        </pattern>
+        <mask id="mask">
+            <rect x="-50" y="-50" height="100%" width="100%" style="fill: url(#stripe)" />
+        </mask>
+    </defs>
+</svg>
+
+<script src="main.js"></script>
+
+<script>
+    var node = document.getElementById('main');
+    var app = Elm.Main.embed(node);
+</script>
+
+</body>
+</html>
+
